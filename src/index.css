@@ -1,13 +1,63 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-background {
+  background-image: url('./assets/bg-texture.png');
+  overflow: hidden;
+  position: relative;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.hero-background::before, .hero-background::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.hero-background::before {
+  width: 1200px;
+  height: 1000px;
+  background: radial-gradient(circle at 30% 30%, #8C5D92, transparent);
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  filter: blur(150px);
+}
+
+.hero-background::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at 70% 70%, #FF79D2, transparent);
+  top: 70%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  filter: blur(150px);
+}
+
+.greet-bg {
+  overflow: hidden;
+  position: relative;
+}
+
+
+.greet-bg::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.greet-bg::before {
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle at 30% 30%, #d5ae77, transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(150px);
+}
+
+.navbar-bg {
+  background: rgba(0, 0, 0, 0.4);
 }
