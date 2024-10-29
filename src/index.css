@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+
 .hero-background {
   background-image: url('./assets/bg-texture.png');
+  background-repeat: no-repeat; /* Prevents the background from repeating */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
   overflow: hidden;
-  position: relative;
+  position: relative; 
 }
+
 
 .hero-background::before, .hero-background::after {
   content: '';
@@ -58,6 +66,31 @@
   filter: blur(150px);
 }
 
-.navbar-bg {
-  background: rgba(0, 0, 0, 0.4);
+.greet-inputs {
+  
 }
+
+.save-btn {
+  background-color: #f0ba17;
+}
+
+.navbar-bg {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+
+.text-mid {
+  color: #ffffff;
+  transition: color 0.3s ease; 
+}
+
+.text-mid.active {
+  color: #ffdd00; 
+}
+
+
+.messages-bg {
+  
+  background-color: #b9efec;
+}
+
