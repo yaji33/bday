@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { db } from '../config'
-import { collection, addDoc, Timestamp } from 'firebase/firestore'; 
+import React, { useState } from 'react';
+import { db } from '../config';
+import { collection, addDoc } from 'firebase/firestore'; 
 import '../index.css';
 
 const Greet = () => {
-    const [nickname, setNickname] = React.useState("");
-    const [message, setMessage] = React.useState("");
+    const [nickname, setNickname] = useState("");
+    const [message, setMessage] = useState("");
 
     const addMessage = async () => {
         if (nickname && message) {
@@ -27,16 +27,15 @@ const Greet = () => {
         }
     };
 
-
     return (
         <div id="greet" className='w-full min-h-screen flex items-center justify-center greet-bg'>
-            <div className='h-auto w-1/3 bg-white p-6 shadow-lg flex flex-col z-20 rounded-lg'>
-                <h3 className='text-lg'>
-                    Hello there! You know why you're here. Below is where you're going to input your name/nickname, and your birthday message for Jhona. Rest assured that your message will be kept private and will not be displayed publicly; only Jhona will able to view your message. Thank you so much!
+            <div className='h-auto w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 bg-white p-4 sm:p-6 shadow-lg flex flex-col z-20 rounded-lg m-4'>
+                <h3 className='text-lg mb-4 text-left'>
+                    Hello there! Below is where you're going to input your name/nickname, and your birthday message for Jhona. Rest assured that your message will be kept private and will not be displayed publicly; only Jhona will be able to view your message. Thank you so much!
                 </h3>
-                <div className='w-full greet-inputs'>
+                <div className='w-full greet-inputs mb-4'>
                     <input 
-                        className='border p-2 mb-4 rounded w-full mt-14 outline-none transition-all duration-300 focus:shadow-lg focus:shadow-md' 
+                        className='border p-2 mb-4 rounded w-full outline-none transition-all duration-300 focus:shadow-lg focus:shadow-md' 
                         type="text" 
                         placeholder="Enter your name/nickname"
                         value={nickname}
@@ -51,8 +50,8 @@ const Greet = () => {
                     ></textarea>
                 </div>
 
-                <div className="flex justify-end w-full mt-20">
-                    <button className="text-white font-semibold py-1 px-12 save-btn"
+                <div className="flex justify-end w-full mt-4">
+                    <button className="text-white font-semibold py-2 px-8 save-btn rounded"
                         onClick={addMessage}
                     >
                         Save

@@ -6,8 +6,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
 
+
+
 .hero-background {
-  background-image: url('./assets/bg-texture.png');
+  background-image: url('./assets/bg-texture-3.png');
   background-repeat: no-repeat; /* Prevents the background from repeating */
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
@@ -90,7 +92,9 @@
 
 
 .messages-bg {
-  
-  background-color: #b9efec;
+  background: linear-gradient(135deg, #3F356A, #5B4D8A, #7469B6);
 }
 
+.sub-btn {
+  background-color: #f0ba17;
+}

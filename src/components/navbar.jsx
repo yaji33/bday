@@ -5,9 +5,9 @@ import { Link } from 'react-scroll';
 const Navbar = () => {
   return (
     <nav className='fixed top-0 left-0 w-full text-white z-50 navbar-bg'>
-      <div className='flex items-center justify-between p-3 mx-14'>
-        <h1 className='text-xl'>It's Jhona's Day!</h1>
-        <ul className='flex space-x-8'>
+      <div className='flex items-center justify-center p-4 mx-14'>
+        {/*<h1 className='text-xl'>It's Jhona's Day!</h1>*/}
+        <ul className='flex space-x-14'>
           <li>
             <Link to="hero" 
               smooth={true} 
@@ -43,30 +43,7 @@ const Navbar = () => {
               Messages
             </Link>
           </li>
-          <li>
-            <Link 
-              to="clips" 
-              smooth={true} 
-              duration={500} 
-              spy={true} 
-              activeClass="active"
-              className="cursor-pointer text-mid"
-            >
-              Clips
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="secret" 
-              smooth={true} 
-              duration={500} 
-              spy={true} 
-              activeClass="active"
-              className="cursor-pointer text-mid"
-            >
-              Secret
-            </Link>
-          </li>
+          
           
         </ul>
       </div>
