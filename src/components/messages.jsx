@@ -72,12 +72,12 @@ const Messages = () => {
               type="password"
               value={codeInput}
               onChange={(e) => setCodeInput(e.target.value)}
-              className="p-2 border border-gray-300 rounded bg-transparent text-white px-8 mb-4"
+              className="p-2 border border-gray-300 rounded bg-transparent text-white mb-3"
               placeholder="Enter code"
             />
             <button
               onClick={handleCodeSubmit}
-              className="ml-2 py-2 px-7 save-btn text-white rounded sub-btn"
+              className="ml-2 py-2 px-5 save-btn text-white rounded sub-btn"
             >
               Submit
             </button>

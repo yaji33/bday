@@ -78,7 +78,7 @@ const Greet = () => {
                             
                             <div className="flex justify-center gap-4">
                                 <button
-                                    className="text-white py-2 px-6 rounded font-semibold confirm-btn"
+                                    className="text-white py-2 px-5 rounded font-semibold confirm-btn"
                                     onClick={addMessage}
                                 >
                                     Confirm
