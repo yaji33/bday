@@ -56,7 +56,7 @@ const Messages = () => {
     if (codeInput === accessCode) {
       setIsAuthorized(true);
     } else {
-      toast.error("Incorrect code! Please try again.");
+      toast.error("Oops wrong code, probably not Jhona.");
     }
   };
   
