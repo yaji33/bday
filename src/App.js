@@ -3,6 +3,7 @@ import Hero from './components/hero';
 import Navbar from './components/navbar';
 import Greet from './components/greet';
 import Messages from './components/messages';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar />
       <Greet />
       <Messages />
+      <Footer />  
     </div>
   );
 }

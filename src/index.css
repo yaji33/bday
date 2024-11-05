@@ -7,12 +7,33 @@
 
 
 
+.no-download {
+  pointer-events: none;
+  user-drag: none; 
+  user-select: none; 
+}
+
+.no-download img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+.no-download img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
 
 .hero-background {
   background-image: url('./assets/bg-texture-3.png');
-  background-repeat: no-repeat; /* Prevents the background from repeating */
-  background-size: cover; /* Ensures the image covers the entire container */
-  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background-position: center; 
   overflow: hidden;
   position: relative; 
 }
@@ -86,8 +107,26 @@
   transition: color 0.3s ease; 
 }
 
-.text-mid.active {
-  color: #ffdd00; 
+.text-mid {
+  position: relative;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.text-mid::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; 
+  width: 0;
+  height: 2px; 
+  background-color: #ffffff;
+  transition: width 0.3s ease; 
+}
+
+.text-mid:hover::after,
+.text-mid.active::after {
+  width: 100%; 
 }
 
 
@@ -97,4 +136,8 @@
 
 .sub-btn {
   background-color: #f0ba17;
+}
+
+.confirm-btn {
+  background-color: #f0a817;
 }

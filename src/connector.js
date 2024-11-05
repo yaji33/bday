@@ -1,12 +1,12 @@
 // src/connector.js
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // or getDatabase for Realtime Database
+import { getFirestore } from "firebase/firestore"; 
 import firebaseConfig from "./config";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firestore (or Realtime Database if needed)
-const db = getFirestore(app); // or getDatabase(app) for Realtime Database
+
+const db = getFirestore(app); 
 
 export { db };

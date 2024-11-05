@@ -1,13 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../config';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [codeInput, setCodeInput] = useState("");
+  const [accessCode, setAccessCode] = useState("");
 
   useEffect(() => { 
+    // Fetch access code from Firestore
+    const fetchAccessCode = async () => {
+      try {
+        const docRef = doc(db, "accessCodes", "accessCodeDoc"); 
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setAccessCode(docSnap.data().code);
+        } else {
+          console.error("No access code found!");
+        }
+      } catch (e) {
+        console.error("Error fetching access code: ", e);
+      }
+    };
+
+    // Fetch messages if authorized
     const fetchMessages = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "messages"));
@@ -21,18 +40,26 @@ const Messages = () => {
       }
     };
 
+    fetchAccessCode(); // Fetch access code on mount
+
     if (isAuthorized) {
       fetchMessages();
     }
   }, [isAuthorized]);
 
   const handleCodeSubmit = () => {
-    if (codeInput === "Y1") {
+    if (codeInput.trim() === "") {
+      toast.error("Please enter a code.");
+      return;
+    }
+  
+    if (codeInput === accessCode) {
       setIsAuthorized(true);
     } else {
-      alert("Incorrect code.");
+      toast.error("Incorrect code! Please try again.");
     }
   };
+  
 
   return (
     <div id="messages" className="relative w-full min-h-screen flex items-center justify-center messages-bg">
@@ -40,7 +67,7 @@ const Messages = () => {
       <div className={`${!isAuthorized ? "backdrop-blur-lg bg-black bg-opacity-10" : ""} absolute inset-0 flex items-center justify-center`}>
         {!isAuthorized && (
           <div className="text-center bg-transparent">
-            <h1 className="text-2xl mb-4 text-white">To Jhona: Unlock your messages, love!</h1>
+            <h1 className="text-2xl mb-4 text-white">For the birthday girl only.</h1>
             <input
               type="password"
               value={codeInput}
@@ -69,6 +96,7 @@ const Messages = () => {
           </div>  
         ))}
       </div>
+      <Toaster position="bottom-center" reverseOrder={false} />
     </div>
   );
 };
