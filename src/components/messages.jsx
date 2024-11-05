@@ -72,7 +72,7 @@ const Messages = () => {
               type="password"
               value={codeInput}
               onChange={(e) => setCodeInput(e.target.value)}
-              className="p-2 border border-gray-300 rounded bg-transparent text-white px-8"
+              className="p-2 border border-gray-300 rounded bg-transparent text-white px-8 mb-4"
               placeholder="Enter code"
             />
             <button
